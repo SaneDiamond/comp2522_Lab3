@@ -2,12 +2,22 @@ package ca.bcit.comp2522.lab3.BAM;
 
 import java.util.Objects;
 
+/**
+ *
+ *
+ * @author Andre
+ * @version 1.0
+ */
 public class IPhone extends IDevice{
 
-    double phonePlanMins;
-    String phoneCarrier;
-    public IPhone (double phonePlanMins, String phoneCarrier){
+    private static double phonePlanMins;
+    private static String phoneCarrier;
+    public IPhone (final double phonePlanMins, final String phoneCarrier){
         super("talking");
+
+        validatePhonePlanMins(phonePlanMins);
+        validatePhoneCarrier(phoneCarrier);
+
         this.phonePlanMins = phonePlanMins;
         this.phoneCarrier = phoneCarrier;
     }
@@ -62,5 +72,17 @@ public class IPhone extends IDevice{
     @Override
     public int hashCode(){
         return Objects.hashCode("woah");
+    }
+
+private static void validatePhonePlanMins(final double phonePlanMins){
+    if (phonePlanMins < 0){
+        throw new IllegalArgumentException("Phone plan minutes must be greater than zero");
+        }
+    }
+
+    private static void validatePhoneCarrier(final String phoneCarrier){
+        if (phoneCarrier == null){
+            throw new IllegalArgumentException("Phone carrier must not be null");
+        }
     }
 }
