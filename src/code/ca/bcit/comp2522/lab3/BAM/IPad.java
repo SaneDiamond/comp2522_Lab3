@@ -1,5 +1,4 @@
 package ca.bcit.comp2522.lab3.BAM;
-
 import java.util.Objects;
 
 /**
@@ -43,7 +42,17 @@ public class IPad extends IDevice {
             throw new IllegalArgumentException("hasCase cannot be null");
         }
     }
+    public String getPurpose(){
 
+        return "the purpose of this iDevice is “learning”";
+    }
+
+    public String getDetails(){
+        return toString();
+    }
+    public void printDetails(){
+        System.out.println(toString());
+    }
     /**
      * Retrieves the details of the ipad as a String.
      *
