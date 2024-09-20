@@ -1,8 +1,6 @@
 package ca.bcit.comp2522.lab3.BAM;
 
-// Importing the abstract class and interfaces
 public abstract class IDevice {
-
     private final String purpose;
 
     // Constructor
