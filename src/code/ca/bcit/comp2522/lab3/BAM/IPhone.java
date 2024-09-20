@@ -39,6 +39,27 @@ public class IPhone extends IDevice{
     }
 
     @Override
+    public boolean equals(final Object compareObj){
+        if (compareObj == null){
+            return false;
+        }
+
+        if (!(compareObj instanceof IPhone)){
+            return false;
+        }
+
+        if (compareObj == this){
+            return true;
+        }
+
+        final IPhone compareObjIPhone;
+        compareObjIPhone = (IPhone) compareObj;
+        final boolean equals;
+        equals = this.phonePlanMins==compareObjIPhone.phonePlanMins;
+        return equals;
+    }
+
+    @Override
     public int hashCode(){
         return Objects.hashCode("woah");
     }
