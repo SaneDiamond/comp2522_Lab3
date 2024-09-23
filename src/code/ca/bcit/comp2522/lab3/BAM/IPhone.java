@@ -10,7 +10,7 @@ import java.util.Objects;
  */
 public class IPhone extends IDevice{
 
-    private static double phonePlanMins;
+    protected static double phonePlanMins;
     private static String phoneCarrier;
     public IPhone (final double phonePlanMins, final String phoneCarrier){
         super("talking");
