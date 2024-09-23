@@ -4,12 +4,18 @@ import java.util.Objects;
 
 public class IPhone16 extends IPhone {
 
+    // Marcus:
+    // - Add final
+    // - Not static
     private static boolean highResCam;
     private static int memoryGig;
 
     public IPhone16(final double phonePlanMins, final String phoneCarrier,
                     final boolean highResCam, final int memoryGig) {
         super(phonePlanMins, phoneCarrier);
+        // Marcus:
+        // - Validation method for highResCam and memoryGig
+        // - Assign highResCam and memoryGig
     }
 
     @Override
@@ -20,6 +26,9 @@ public class IPhone16 extends IPhone {
 
         iPhone16 = new StringBuilder();
         iDeviceStr = super.toString();
+
+        // Marcus:
+        // - One command (append) at a line
         iPhone16.append(iDeviceStr).append("This iPhone having a res cam is : " + highResCam +
                 ". The amount of memory in the phone is" + memoryGig);
         iPhone16Str = iPhone16.toString();
@@ -41,12 +50,14 @@ public class IPhone16 extends IPhone {
         }
 
         final IPhone compareObjIPhone;
-        compareObjIPhone = (IPhone) compareObj;
         final boolean equals;
-        equals = this.phonePlanMins==compareObjIPhone.phonePlanMins;
+        compareObjIPhone = (IPhone) compareObj;
+        equals = this.phonePlanMins == compareObjIPhone.phonePlanMins;
         return equals;
     }
 
+    // Marcus:
+    // - Use hashCode based on phonePlanMins
     @Override
     public int hashCode(){
         return Objects.hashCode("test");

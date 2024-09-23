@@ -6,7 +6,7 @@ public abstract class IDevice {
     private final String purpose;
 
     // Constructor
-    public IDevice(String purpose) {
+    public IDevice(final String purpose) {
         this.purpose = purpose;
     }
 
