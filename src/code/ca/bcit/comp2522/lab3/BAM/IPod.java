@@ -10,12 +10,12 @@ import java.util.Objects;
  * @version 1.0
  */
 public class IPod extends IDevice {
-    private static int MIN_SONGS = 0;
-    private static float MIN_VOLUME_DB = 0.0f;
-    private static float MAX_VOLUME_DB = 1.0f;
+    private static final int MIN_SONGS = 0;
+    private static final float MIN_VOLUME_DB = 0.0f;
+    private static final float MAX_VOLUME_DB = 1.0f;
 
-    private int songsStored;
-    private double currMaxVolumeDb;
+    private final int songsStored;
+    private final double currMaxVolumeDb;
 
     /**
      * Creates an IPod object based on amount of songs stored and
