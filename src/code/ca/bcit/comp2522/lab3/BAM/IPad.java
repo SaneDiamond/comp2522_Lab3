@@ -26,6 +26,9 @@ public class IPad extends IDevice {
         this.systemVersion = systemVersion;
     }
 
+    // Marcus:
+    // - It's okay, but you don't need javadocs for private static methods.
+    // - If it was chatgpt, that's fine
     /**
      * Validates the system version.
      *
