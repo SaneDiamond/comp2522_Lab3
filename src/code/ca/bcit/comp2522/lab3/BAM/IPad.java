@@ -6,7 +6,7 @@ import java.util.Objects;
  * IPad
  *
  * @author Ben, Andre, Marcus BAM BAM
- * Version 1.0
+ * @version 1.0
  */
 public class IPad extends IDevice {
     private final boolean hasCase;
@@ -37,6 +37,9 @@ public class IPad extends IDevice {
         }
     }
 
+    // Marcus:
+    // - You don't need to override this method.
+    // - If you do, don't forget to add @Override
     /**
      * Returns the purpose of the device.
      *
@@ -46,6 +49,8 @@ public class IPad extends IDevice {
         return "The purpose of this iDevice is learning.";
     }
 
+    // Marcus:
+    // - You don't need this method, you already have toString()
     /**
      * Returns details of the iPad.
      *
@@ -69,6 +74,8 @@ public class IPad extends IDevice {
      */
     @Override
     public String toString() {
+        // Marcus:
+        // - Declaration and initialization in different lines
         StringBuilder str = new StringBuilder();
         str.append("Do we have a case? ")
                 .append(this.hasCase)
@@ -85,18 +92,28 @@ public class IPad extends IDevice {
      */
     @Override
     public boolean equals(final Object obj) {
+        // Marcus:
+        // - Check if the object is null first, then you check if it's 'this'
         if (this == obj) {
             return true;
         }
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
+        // Marcus:
+        // - Declaration and initialization in different lines
         final IPad other = (IPad) obj;
+
+        // Marcus:
+        // - Add it to a variable then return the variable
+        // (I hate that shit to, but it's Jason's orders)
         return systemVersion.equalsIgnoreCase(other.systemVersion);
     }
 
     @Override
     public int hashCode() {
+        // Marcus:
+        // - I am pretty sure it's just .hashCode()
         return Objects.hash(systemVersion);
     }
 }
