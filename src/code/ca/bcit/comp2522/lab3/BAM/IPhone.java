@@ -11,8 +11,6 @@ public class IPhone extends IDevice {
     private static final int PHONE_PLAN_MINS_MIN = 0;
 
     public final double phonePlanMins;
-
-
     public final String phoneCarrier;
 
     public IPhone(final double phonePlanMins, final String phoneCarrier) {
@@ -44,8 +42,11 @@ public class IPhone extends IDevice {
         iDeviceString = super.toString();
 
 
-        iPhoneStrBuilder.append(iDeviceString).append("iPhone. Phone plan minutes: ")
-                .append(phonePlanMins).append(". Phone carrier is: ").append(phoneCarrier);
+        iPhoneStrBuilder.append(iDeviceString)
+                .append("iPhone. Phone plan minutes: ")
+                .append(phonePlanMins)
+                .append(". Phone carrier is: ")
+                .append(phoneCarrier);
 
         iPhoneStr = iPhoneStrBuilder.toString();
         return iPhoneStr;
@@ -67,10 +68,12 @@ public class IPhone extends IDevice {
 
         final IPhone compareObjIPhone;
         final boolean equals;
+        int compared;
         compareObjIPhone = (IPhone) compareObj;
 
+        compared = Double.compare(this.phonePlanMins, compareObjIPhone.phonePlanMins);
 
-        return Double.compare(this.phonePlanMins, compareObjIPhone.phonePlanMins) == 0;
+        return compared == 0;
     }
 
 

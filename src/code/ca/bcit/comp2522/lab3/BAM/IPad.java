@@ -20,7 +20,7 @@ public class IPad extends IDevice {
      */
     public IPad(final boolean hasCase, final String systemVersion) {
         super("learning");
-        // Validate alidate
+        // Validate
         systemVersionValidation(systemVersion);
         this.hasCase = hasCase;
         this.systemVersion = systemVersion;

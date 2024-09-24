@@ -12,10 +12,12 @@ public class IPhone16 extends IPhone {
                     final boolean highResCam, final int memoryGig) {
         super(phonePlanMins, phoneCarrier);
 
+        validatememoryGig(memoryGig);
+
         this.highResCam = highResCam;
         this.memoryGig = memoryGig;
 
-        validatememoryGig(memoryGig);
+
     }
 
     @Override
@@ -29,8 +31,10 @@ public class IPhone16 extends IPhone {
 
 
         iPhone16.append(iDeviceStr)
-                .append("This iPhone having a res cam is : " + highResCam +
-                ". The amount of memory in the phone is" + memoryGig);
+                .append("This iPhone having a res cam is : ")
+                .append(highResCam)
+                .append(". The amount of memory in the phone is")
+                .append(memoryGig);
         iPhone16Str = iPhone16.toString();
         return iPhone16Str;
     }
