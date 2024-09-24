@@ -13,10 +13,8 @@ public class IPhone16 extends IPhone {
 
     private static final int MEMORY_GIG_MIN = 0;
 
-    /** Indicates whether the iPhone has a high-resolution camera. */
     public final boolean highResCam;
 
-    /** The memory capacity of the iPhone in gigabytes. */
     public final int memoryGig;
 
     /**
