@@ -8,14 +8,12 @@ import java.util.Objects;
  */
 public class IPhone extends IDevice {
 
-    // Marcus:
-    // - Make it final
-    // - Don't make it protected
-    protected static double phonePlanMins;
+    private static final int PHONE_PLAN_MINS_MIN = 0;
 
-    // Marcus:
-    // - Don't make it static
-    private static String phoneCarrier;
+    public final double phonePlanMins;
+
+
+    public final String phoneCarrier;
 
     public IPhone(final double phonePlanMins, final String phoneCarrier) {
         super("talking");
@@ -45,8 +43,7 @@ public class IPhone extends IDevice {
         iPhoneStrBuilder = new StringBuilder();
         iDeviceString = super.toString();
 
-        // Marcus:
-        // - One command (append) at a line
+
         iPhoneStrBuilder.append(iDeviceString).append("iPhone. Phone plan minutes: ")
                 .append(phonePlanMins).append(". Phone carrier is: ").append(phoneCarrier);
 
@@ -72,25 +69,18 @@ public class IPhone extends IDevice {
         final boolean equals;
         compareObjIPhone = (IPhone) compareObj;
 
-        // Marcus:
-        // - When you compare doubles, you can't just do equals.
-        // - Double comparison method
-        //  0.900000000000000000000000000000000000 0.90000000000000000000000000000001
-        // Double.compare() //, returns 0 if equals
-        equals = this.phonePlanMins == compareObjIPhone.phonePlanMins;
-        return equals;
+
+        return Double.compare(this.phonePlanMins, compareObjIPhone.phonePlanMins) == 0;
     }
 
-    // Marcus:
-    // - Use hashCode based on phonePlanMins
+
     @Override
     public int hashCode() {
-        return Objects.hashCode("woah");
+        return Objects.hashCode(phonePlanMins);
     }
 
     private static void validatePhonePlanMins(final double phonePlanMins) {
-        // MAGIC NUMBER
-        if (phonePlanMins < 0) {
+        if (phonePlanMins < PHONE_PLAN_MINS_MIN) {
             throw new IllegalArgumentException("Phone plan minutes must be greater than zero");
         }
     }
