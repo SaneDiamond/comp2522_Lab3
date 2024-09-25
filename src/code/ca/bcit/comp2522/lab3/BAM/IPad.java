@@ -84,7 +84,7 @@ public class IPad extends IDevice {
 
         other = (IPad) obj;
 
-        equals = systemVersion.equalsIgnoreCase(other.systemVersion);
+        equals = this.systemVersion == other.systemVersion;
         return equals;
     }
 
