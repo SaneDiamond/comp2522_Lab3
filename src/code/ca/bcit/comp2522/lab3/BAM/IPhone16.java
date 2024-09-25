@@ -32,7 +32,7 @@ public class IPhone16 extends IPhone {
                     final boolean highResCam, final int memoryGig) {
         super(phonePlanMins, phoneCarrier);
 
-        validatememoryGig(memoryGig);
+        validateMemoryGig(memoryGig);
 
         this.highResCam = highResCam;
         this.memoryGig = memoryGig;
@@ -106,7 +106,7 @@ public class IPhone16 extends IPhone {
      * @param memoryGig the memory capacity to validate
      * @throws IllegalArgumentException if memoryGig is not greater than MEMORY_GIG_MIN
      */
-    private static void validatememoryGig(final int memoryGig) {
+    private static void validateMemoryGig(final int memoryGig) {
         if (memoryGig <= MEMORY_GIG_MIN) {
             throw new IllegalArgumentException("memoryGig must be greater than " + MEMORY_GIG_MIN);
         }

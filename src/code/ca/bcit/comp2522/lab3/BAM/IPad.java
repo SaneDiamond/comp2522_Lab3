@@ -20,11 +20,11 @@ public class IPad extends IDevice {
      */
     public IPad(final boolean hasCase, final String systemVersion) {
         super("learning");
-        // Validate
         systemVersionValidation(systemVersion);
         this.hasCase = hasCase;
         this.systemVersion = systemVersion;
     }
+
     /**
      * Returns the purpose of the device.
      *
@@ -67,11 +67,16 @@ public class IPad extends IDevice {
      */
     @Override
     public boolean equals(final Object obj) {
-        if (obj == null || getClass() != obj.getClass()) {
+        if (obj == null) {
             return false;
         }
+
         if (this == obj) {
             return true;
+        }
+
+        if (!(obj instanceof IPad)) {
+            return false;
         }
 
         final IPad other;
