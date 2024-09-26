@@ -11,8 +11,8 @@ import java.util.Objects;
  */
 public class IPod extends IDevice {
     private static final int MIN_SONGS = 0;
-    private static final float MIN_VOLUME_DB = 0.0f;
-    private static final float MAX_VOLUME_DB = 1.0f;
+    private static final double MIN_VOLUME_DB = 0.0f;
+    private static final double MAX_VOLUME_DB = 100.0f;
 
     private final int songsStored;
     private final double currMaxVolumeDb;
@@ -24,7 +24,8 @@ public class IPod extends IDevice {
      * @param songsStored       amount of songs stored
      * @param currMaxVolumeDb   max volume in decibels
      */
-    public IPod(final int songsStored, final double currMaxVolumeDb) {
+    public IPod(final int songsStored,
+                final double currMaxVolumeDb) {
         super("music");
         validateSongs(songsStored);
         validateMaxVolume(currMaxVolumeDb);
@@ -78,7 +79,7 @@ public class IPod extends IDevice {
      */
     @Override
     public void printDetails() {
-        System.out.println(this.toString());
+        System.out.println(this);
     }
 
     /**
@@ -89,9 +90,9 @@ public class IPod extends IDevice {
      */
     @Override
     public String toString() {
-        StringBuilder iPodStrBuilder;
-        String iDeviceString;
-        String iPodStr;
+        final StringBuilder iPodStrBuilder;
+        final String iDeviceString;
+        final String iPodStr;
 
         iPodStrBuilder = new StringBuilder();
         iDeviceString = super.toString();

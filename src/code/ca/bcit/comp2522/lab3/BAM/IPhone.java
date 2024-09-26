@@ -12,6 +12,8 @@ import java.util.Objects;
 public class IPhone extends IDevice {
 
     private static final int PHONE_PLAN_MINS_MIN = 0;
+    private static final int COMPARISON_EQUALS = 0;
+
 
     public final double phonePlanMins;
 
@@ -60,9 +62,9 @@ public class IPhone extends IDevice {
      */
     @Override
     public String toString() {
-        StringBuilder iPhoneStrBuilder;
-        String iDeviceString;
-        String iPhoneStr;
+        final StringBuilder iPhoneStrBuilder;
+        final String iDeviceString;
+        final String iPhoneStr;
 
         iPhoneStrBuilder = new StringBuilder();
         iDeviceString = super.toString();
@@ -74,6 +76,7 @@ public class IPhone extends IDevice {
                 .append(phoneCarrier);
 
         iPhoneStr = iPhoneStrBuilder.toString();
+
         return iPhoneStr;
     }
 
@@ -81,7 +84,7 @@ public class IPhone extends IDevice {
      * Checks if this iPhone is equal to another object.
      *
      * @param compareObj the object to compare to
-     * @return true if the objects are equal, false otherwise
+     * @return true if the IPhone objects have the same minutes, false otherwise
      */
     @Override
     public boolean equals(final Object compareObj) {
@@ -99,12 +102,13 @@ public class IPhone extends IDevice {
 
         final IPhone compareObjIPhone;
         final boolean equals;
-        int compared;
+        final int compared;
         compareObjIPhone = (IPhone) compareObj;
 
         compared = Double.compare(this.phonePlanMins, compareObjIPhone.phonePlanMins);
+        equals = compared == COMPARISON_EQUALS;
 
-        return compared == 0;
+        return equals;
     }
 
     /**

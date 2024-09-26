@@ -9,19 +9,20 @@ import java.util.Objects;
  * @version 1.0
  */
 public class IPad extends IDevice {
-    private final boolean hasCase;
+    private final boolean iPadCase;
     private final String systemVersion;
 
     /**
      * Constructs an IPad with a case status and system version.
      *
-     * @param hasCase       whether the iPad has a case
+     * @param iPadCase whether the iPad has a case
      * @param systemVersion the version of the iPad system
      */
-    public IPad(final boolean hasCase, final String systemVersion) {
+    public IPad(final boolean iPadCase,
+                final String systemVersion) {
         super("learning");
         systemVersionValidation(systemVersion);
-        this.hasCase = hasCase;
+        this.iPadCase = iPadCase;
         this.systemVersion = systemVersion;
     }
 
@@ -49,11 +50,11 @@ public class IPad extends IDevice {
      */
     @Override
     public String toString() {
-        StringBuilder str;
+        final StringBuilder str;
         str = new StringBuilder();
 
         str.append("Do we have a case? ")
-                .append(this.hasCase)
+                .append(this.iPadCase)
                 .append(", system version: ")
                 .append(this.systemVersion);
         return str.toString();
@@ -83,8 +84,7 @@ public class IPad extends IDevice {
         final boolean equals;
 
         other = (IPad) obj;
-
-        equals = this.systemVersion == other.systemVersion;
+        equals = Objects.equals(this.systemVersion, other.systemVersion);
         return equals;
     }
 
@@ -99,7 +99,7 @@ public class IPad extends IDevice {
      * @param systemVersion the version of the system
      */
     private static void systemVersionValidation(final String systemVersion) {
-        if (systemVersion == null || systemVersion.isEmpty()) {
+        if (systemVersion == null || systemVersion.isEmpty() || systemVersion.isBlank()) {
             throw new IllegalArgumentException("System version cannot be null or empty");
         }
     }

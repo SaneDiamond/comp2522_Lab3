@@ -28,8 +28,10 @@ public class IPhone16 extends IPhone {
      * @throws IllegalArgumentException if phonePlanMins is negative, phoneCarrier is null,
      *                                  or memoryGig is not greater than MEMORY_GIG_MIN
      */
-    public IPhone16(final double phonePlanMins, final String phoneCarrier,
-                    final boolean highResCam, final int memoryGig) {
+    public IPhone16(final double phonePlanMins,
+                    final String phoneCarrier,
+                    final boolean highResCam,
+                    final int memoryGig) {
         super(phonePlanMins, phoneCarrier);
 
         validateMemoryGig(memoryGig);
@@ -47,9 +49,9 @@ public class IPhone16 extends IPhone {
      */
     @Override
     public String toString() {
-        StringBuilder iPhone16;
-        String iDeviceStr;
-        String iPhone16Str;
+        final StringBuilder iPhone16;
+        final String iDeviceStr;
+        final String iPhone16Str;
 
         iPhone16 = new StringBuilder();
         iDeviceStr = super.toString();
@@ -67,7 +69,7 @@ public class IPhone16 extends IPhone {
      * Checks if this iPhone 16 is equal to another object.
      *
      * @param compareObj the object to compare to
-     * @return true if the objects are equal, false otherwise
+     * @return true if the IPhone16 object have the same high-res camera and same amount of minutes, false otherwise
      */
     @Override
     public boolean equals(final Object compareObj) {
@@ -75,7 +77,7 @@ public class IPhone16 extends IPhone {
             return false;
         }
 
-        if (!(compareObj instanceof IPhone)) {
+        if (!(compareObj instanceof IPhone16)) {
             return false;
         }
 
@@ -83,11 +85,17 @@ public class IPhone16 extends IPhone {
             return true;
         }
 
-        final IPhone compareObjIPhone;
-        compareObjIPhone = (IPhone) compareObj;
+        final IPhone16 compareObjIPhone;
+        final boolean sameRes;
+        final boolean equals;
+
+        compareObjIPhone = (IPhone16) compareObj;
+        sameRes = this.highResCam == compareObjIPhone.highResCam;
 
         // Compare the specific properties of IPhone16
-        return this.phonePlanMins == compareObjIPhone.phonePlanMins;
+        equals = this.phonePlanMins == compareObjIPhone.phonePlanMins && sameRes;
+
+        return equals;
     }
 
     /**
